@@ -10,15 +10,59 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      UserProfile.belongsTo(models.User);
     }
   }
   UserProfile.init({
-    name: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING,
-    address: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'name is required'
+        },
+        notEmpty: {
+          msg: 'name is required'
+        }
+      }
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'phone number is required'
+        },
+        notEmpty: {
+          msg: 'phone number is required'
+        }
+      }
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'address is required'
+        },
+        notEmpty: {
+          msg: 'address is required'
+        }
+      }
+    },
     avatar: DataTypes.STRING,
-    UserId: DataTypes.INTEGER
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'UserId is required'
+        },
+        notEmpty: {
+          msg: 'UserId is required'
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'UserProfile',
