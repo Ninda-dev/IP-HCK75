@@ -42,9 +42,9 @@ class UserController {
                 id: findUser.id
             }
 
-            const acc_token = signToken(payload);
+            const access_token = signToken(payload);
 
-            res.status(200).json({acc_token});
+            res.status(200).json({access_token});
             
         } catch (error) {
             next(error)
