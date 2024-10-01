@@ -4,14 +4,16 @@ const { signToken } = require('../helpers/jwt');
 
 class UserController {
 
-    static async addUser(req, res, next) {
+    static async register(req, res, next) {
         try {
-            let { username, email, password, phoneNumber, address } = req.body;
+            let { email, password } = req.body;
 
-            await User.create({ username, email, password, phoneNumber, address });
+            let newUser = await User.create({ email, password });
+            console.log("siniiii");
+            
 
             res.status(201);
-            res.json({ username, email, phoneNumber, address })
+            res.json(`${ email }  success added`)
 
         } catch (error) {
             next(error)
@@ -44,8 +46,8 @@ class UserController {
 
             const access_token = signToken(payload);
 
-            res.status(200).json({access_token});
-            
+            res.status(200).json({ access_token });
+
         } catch (error) {
             next(error)
         }

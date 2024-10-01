@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      User.hasOne(models.UserProfil);
+      User.hasOne(models.UserProfile);
       User.hasMany(models.Claim);
     }
   }
@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     role: {
       type: DataTypes.STRING,
-      defaultValue: "user"
+      defaultValue: "User"
     }
   }, {
     hooks: {

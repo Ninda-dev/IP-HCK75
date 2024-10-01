@@ -1,9 +1,12 @@
 const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const signToken = (data) => {
+    console.log(JWT_SECRET);
     return jwt.sign(data, JWT_SECRET);
+
 }
 
 const verifyToken = (token) => {
