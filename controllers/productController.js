@@ -1,6 +1,6 @@
 const { Product } = require('../models');
 
-class ProductController{
+class ProductController {
     static async getProduct(req, res, next) {
         try {
             const { search, sort, pagination } = req.query;
@@ -55,35 +55,61 @@ class ProductController{
 
             res.status(200);
             res.json(products);
-            
+
         } catch (error) {
             next(error);
         }
     }
-    
-    static async createProduct (req, res, next){
+
+    static async createProduct(req, res, next) {
         try {
 
-            await Product.create(req.body);
+            let { name, description, image, stock } = req.body;
+
+            let data = await Product.create({ name, description, image, stock });
 
             res.status(201);
-            res.json('success added')
+            res.json(`success added ${data.name}`)
         } catch (error) {
             next(error)
         }
     }
 
-    static async createProduct (req, res, next){
+    static async updateProduct(req, res, next) {
         try {
 
-            await Product.create(req.body);
+            const { id } = req.params
+            const { name, description, image, stock } = req.body
 
-            res.status(201);
-            res.json('success added')
+            let data = await Product.update({ name, description, image, stock },
+                {
+                    where: {
+                        id
+                    }
+                })
+            res.status(200).json({ message: `succesfully update ${data.name}` })
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async deleteProduct(req, res, next){
+        try {
+         
+            const {id} = req.params
+            let data = await Product.findByPk(id);
+            let name = data.name;
+
+            await data.destroy({
+                where: {
+                    id:data.id
+                }
+            })
+            res.status(200).json({message: `succesfully deleting ${name}`})
         } catch (error) {
             next(error)
         }
     }
 }
 
-module.exports= ProductController
+module.exports = ProductController

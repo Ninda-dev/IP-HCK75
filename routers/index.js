@@ -11,10 +11,15 @@ const router = express.Router()
 router.post('/register', UserController.register)
 router.post('/login', UserController.login)
 
-//CRUD Product
-router.post('/product', ProductController.createProduct)
+router
 
-// router.use(authentication)
+//CRUD Product
+router.use(authentication)
+router.get('/products', ProductController.getProduct)
+router.post('/products', ProductController.createProduct)
+router.put('/products/:id', ProductController.updateProduct)
+router.delete('/products/:id', ProductController.deleteProduct)
+
 
 router.use(errorHandler);
 

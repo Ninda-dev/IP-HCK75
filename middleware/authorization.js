@@ -4,7 +4,7 @@ async function authorization(req, res, next) {
     try {
         let role = req.user.role;
 
-        if (role === "admin") {
+        if (role === "Admin") {
             next();
         }
         else {

@@ -11,9 +11,43 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Claim.init({
-    date: DataTypes.DATE,
-    UserId: DataTypes.INTEGER,
-    ProductId: DataTypes.INTEGER
+    date: {
+      type:DataTypes.DATE,
+      defaultValue: new Date(),
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'date is required'
+        },
+        notEmpty: {
+          msg: 'date is required'
+        }
+      }
+    },
+    UserId: {
+      type:DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'UserId is required'
+        },
+        notEmpty: {
+          msg: 'UserId is required'
+        }
+      }
+    },
+    ProductId: {
+      type:DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'ProductId is required'
+        },
+        notEmpty: {
+          msg: 'ProductId is required'
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Claim',
