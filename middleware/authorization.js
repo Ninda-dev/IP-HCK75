@@ -8,21 +8,8 @@ async function authorization(req, res, next) {
             next();
         }
         else {
-            let { id } = req.params;
-
-            let findPost = await Post.findByPk(id);
-
-            if (!findPost) {
-                throw { name: 'NotFound' }
-            }
-
-            if (findPost.UserId !== req.user.id) {
-                throw { name: "Forbidden" }
-            }
-
-            next()
+            throw { name: "Forbidden" }
         }
-
     } catch (error) {
         next(error)
     }
