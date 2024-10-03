@@ -15,15 +15,15 @@ router.post('/login', UserController.login)
 router.use(authentication)
 
 //Claim (conjunction)
-router.post('/claims', ClaimController.createClaim)
+router.post('/claims/:id', ClaimController.createClaim)
 
 router.use(authorization)
+
 //CRUD Product
-router.get('/products', ProductController.getProduct)
+router.get('/products', ProductController.getAllProduct)
 router.post('/products', ProductController.createProduct)
 router.put('/products/:id', ProductController.updateProduct)
 router.delete('/products/:id', ProductController.deleteProduct)
-
 
 router.use(errorHandler);
 

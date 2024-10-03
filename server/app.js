@@ -6,7 +6,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
-app.use('/', require("./routers"))
+app.use('/', require("./server/routers"))
 
 
 app.listen(port, () => {

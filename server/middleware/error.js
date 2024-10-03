@@ -24,7 +24,7 @@ function errorHandler(err, req, res, next) {
             break;
         case "Forbidden":
             status = 403;
-            message = "Forbidden";
+            message = "Forbidden, sorry your not admin";
             break;
     }
 
