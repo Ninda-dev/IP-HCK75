@@ -28,7 +28,20 @@ export default function Home() {
 
     return (
         <>
-            <Card />
+            {product.map((product) => {
+                return (
+                    <Card
+                        key={product.id}
+                        product={{
+                            id:product.id,
+                            name:product.name,
+                            description:product.description,
+                            image:product.image,
+                            stock:product.stock
+                        }}
+                    />
+                )
+            })}
         </>
     )
 }

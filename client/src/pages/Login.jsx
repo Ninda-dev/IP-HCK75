@@ -31,17 +31,17 @@ export default function Login() {
 
     return (
         <>
-            <div className="ml-10 mt-10 mr-10">
+            <div className="ml-60 mt-10 mr-60">
                 <h1 className="text-3xl font-bold mb-4">Login</h1>
                 <p className="mb-8">Log in to claim your donuts..</p>
                 <div className="flex">
-                    <div className="w-1/2">
+                    <div className="w-1/2 ">
                         <img
                             alt="Valentine Donut"
-                            className="rounded-lg shadow-md animate:"
+                            className="rounded-lg shadow-md"
                             height={140}
                             src="image/donut valentine.jpeg"
-                            width={400}
+                            width={430}
                         />
                     </div>
                     <div className="w-1/2 pl-10">
@@ -51,7 +51,7 @@ export default function Login() {
                             <div className="mb-4">
                                 <label className="block text-gray-700">Email</label>
                                 <input
-                                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600"
                                     placeholder="Enter email address ..."
                                     type="email"
                                     value={email}
@@ -61,14 +61,14 @@ export default function Login() {
                             <div className="mb-4">
                                 <label className="block text-gray-700">Password</label>
                                 <input
-                                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600"
                                     placeholder="Enter your password ..."
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
-                            <button type="submit" className="w-full mt-6 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                            <button type="submit" className="w-full mt-6 bg-[#ECB1C0] text-1xl py-2 rounded-lg hover:bg-pink-700 hover:text-white">
                                 Log In
                             </button>
                         </form>
