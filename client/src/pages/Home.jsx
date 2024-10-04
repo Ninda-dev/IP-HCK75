@@ -14,8 +14,9 @@ export default function Home() {
                 },
             });
 
-            setProduct(data.data.query);
-            // console.log(data.data.query, "<<<<<<<<<< ini datanya");
+            // console.log(data.data, "<<<<<<<<<data");
+            
+            setProduct(data.data);
         } catch (error) {
             console.log(error);
 

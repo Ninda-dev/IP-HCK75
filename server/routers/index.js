@@ -11,10 +11,12 @@ const router = express.Router()
 //Register Login
 router.post('/register', UserController.register)
 router.post('/login', UserController.login)
+router.post('/auth/google', UserController.googleLogin)
 
 router.use(authentication)
 
 //Claim (conjunction)
+router.get('/claims', ClaimController.getClaimByUserId)
 router.post('/claims/:id', ClaimController.createClaim)
 
 router.get('/products', ProductController.getAllProduct)

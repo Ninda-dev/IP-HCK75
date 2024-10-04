@@ -1,7 +1,7 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 
-export default function RootLayout() {
+export default function RootLayoutCms() {
     const navigate = useNavigate();
 
     const handleLogout = async () => {

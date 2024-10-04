@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Cms from "./pages/Cms";
 import SideBar from "./components/SideBar";
+import ClaimTable from "./components/ClaimTable";
+import RootLayoutCms from "./layouts/RootLayoutCms";
 
 
 const router = createBrowserRouter([
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: "",
                 element: <Home />
+            },
+            {
+                path: "claim/:id",
+                element: <ClaimTable />
             }
         ]
     },
@@ -35,37 +41,39 @@ const router = createBrowserRouter([
             return null;
         },
     },
+    {
+        path: "/admin",
+        element: <RootLayoutCms />,
+        loader: () => {
+            const access_token = localStorage.getItem("access_token");
+            if (access_token) {
+                return null;
+            }
+            throw redirect("/login");
+        },
+        children: [
+            {
+                path: "",
+                element: <Cms />
+            }
+        ]
+    }
     // {
-    //     path: "/admin",
-    //     element: <RootLayout />,
-    //     loader: () => {
-    //         const access_token = localStorage.getItem("access_token");
-    //         if (access_token) {
-    //             return null;
-    //         }
-    //         throw redirect("/login");
-    //     },
-        // children: [
-        //     {
-        //         path: "",
-        //         element: <Cms />
-            // }
-            // {
-            //     path: "createPost",
-            //     element: <CreatePost />
-            // },
-            // {
-            //     path: "categories",
-            //     element: <ShowCategory />
-            // },
-            // {
-            //     path: "add-user",
-            //     element: <RegisUser />
-            // },
-            // {
-            //     path: "updateImagePost",
-            //     element: <UpdatePostImage />
-            // }
+    //     path: "createPost",
+    //     element: <CreatePost />
+    // },
+    // {
+    //     path: "categories",
+    //     element: <ShowCategory />
+    // },
+    // {
+    //     path: "add-user",
+    //     element: <RegisUser />
+    // },
+    // {
+    //     path: "updateImagePost",
+    //     element: <UpdatePostImage />
+    // }
     //     ]
     // }
 ]);
