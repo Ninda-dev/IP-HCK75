@@ -30,7 +30,19 @@ export default function RootLayoutCms() {
                             <span className="ml-2 text-xl font-bold">DonaturDonat</span>
                         </li>
                         <li>
-                            <Link to="/claim/:id">
+                            <Link to="/user">
+                                <i className="fas fa-box-open"></i>
+                                <span className="mx-4 font-medium">User</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/claim">
+                                <i className="fas fa-box-open"></i>
+                                <span className="mx-4 font-medium">Product</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/product">
                                 <i className="fas fa-box-open"></i>
                                 <span className="mx-4 font-medium">Claim</span>
                             </Link>

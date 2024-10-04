@@ -14,7 +14,7 @@ export default function ClaimTable() {
             // console.log(data.data, "<<<<<<<<<data");
             setClaim(data.data);
             // console.log(claim, "-----this is claim");
-            
+
         } catch (error) {
             console.log(error);
         }
@@ -42,13 +42,19 @@ export default function ClaimTable() {
                         {claim.map((claim, idx) => {
                             return (
                                 <tr key={claim.id}>
-                                    <th>{idx+1}</th>
+                                    <th>{idx + 1}</th>
                                     <th>{claim.Product.name}</th>
                                     <th>{claim.date}</th>
                                     <td>{claim.UserId}</td>
                                     <td>{claim.ProductId}</td>
                                     <td>
-                                        <img className="w-40" src={claim.Product.image} alt="donut lezat" /></td>
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-24">
+                                                <img src={claim.Product.image} />
+                                            </div>
+                                        </div>
+                                    </td>
+
                                 </tr>
                             )
                         })}
