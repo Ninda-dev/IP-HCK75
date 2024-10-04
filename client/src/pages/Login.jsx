@@ -56,6 +56,7 @@ export default function Login() {
             { theme: 'outline', size: 'large' },
         );
         // to display the One Tap dialog, or comment to remove the dialog
+        
         google.accounts.id.prompt();
     }, []);
 
