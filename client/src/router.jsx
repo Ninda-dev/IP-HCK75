@@ -67,10 +67,6 @@ const router = createBrowserRouter([
     //     element: <ShowCategory />
     // },
     // {
-    //     path: "add-user",
-    //     element: <RegisUser />
-    // },
-    // {
     //     path: "updateImagePost",
     //     element: <UpdatePostImage />
     // }

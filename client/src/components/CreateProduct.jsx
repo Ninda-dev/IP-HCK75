@@ -24,6 +24,6 @@ export default function CreateProduct({handleSubmit}) {
     </>
 }
 
-// CreateProduct.propTypes = {
-//     handleSubmit: PropTypes.func.isRequired
-// }
+CreateProduct.propTypes = {
+    handleSubmit: PropTypes.func.isRequired
+}
