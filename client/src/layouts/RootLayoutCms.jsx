@@ -36,9 +36,9 @@ export default function RootLayoutCms() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/claim">
+                            <Link to="/admin/create-product">
                                 <i className="fas fa-box-open"></i>
-                                <span className="mx-4 font-medium">Product</span>
+                                <span className="mx-4 font-medium">Create Product</span>
                             </Link>
                         </li>
                         <li>

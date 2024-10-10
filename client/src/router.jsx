@@ -6,6 +6,7 @@ import Cms from "./pages/Cms";
 import SideBar from "./components/SideBar";
 import ClaimTable from "./components/ClaimTable";
 import RootLayoutCms from "./layouts/RootLayoutCms";
+import CreateProduct from "./components/CreateProduct";
 
 
 const router = createBrowserRouter([
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
             {
                 path: "",
                 element: <Cms />
+            },
+            {
+                path: "create-product",
+                element: <CreateProduct/>
             }
         ]
     }

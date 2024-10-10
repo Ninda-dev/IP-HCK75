@@ -20,6 +20,7 @@ router.get('/claims', ClaimController.getClaimByUserId)
 router.post('/claims/:id', ClaimController.createClaim)
 
 router.get('/products', ProductController.getAllProduct)
+router.get('/products/:id', ProductController.getProductById)
 
 router.use(authorization)
 

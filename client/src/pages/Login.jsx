@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { instanceAxios } from "../axiosClient";
+import Swal from "sweetalert2";
 
 export default function Login() {
     const [email, setEmail] = useState("admin@mail.com");
@@ -26,7 +27,11 @@ export default function Login() {
 
             navigate('/');
         } catch (error) {
-            console.log(error)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: error.response.data.message,
+            });
         }
     };
 
@@ -56,7 +61,7 @@ export default function Login() {
             { theme: 'outline', size: 'large' },
         );
         // to display the One Tap dialog, or comment to remove the dialog
-        
+
         google.accounts.id.prompt();
     }, []);
 

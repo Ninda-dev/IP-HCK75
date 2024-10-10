@@ -98,7 +98,6 @@ export default function Cms() {
         <>
             <div>
                 <h1 className="text-center text-2xl font-bold">Product List</h1>
-                <button className="align-right" onClick={<CreateProduct handleSubmit={handleSubmit} />}>CreateProduct</button>
             </div>
             <div className="overflow-x-auto">
                 <table className="table">
