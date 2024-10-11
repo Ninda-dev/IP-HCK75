@@ -1,11 +1,20 @@
 // Make sure to include these imports:
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const { text } = require("express");
 require('dotenv').config()
-// import { GoogleGenerativeAI } from "@google/generative-ai";
-const genAI = new GoogleGenerativeAI(process.env.GEMINIAI_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-const prompt = "Write a story about a magic backpack.";
+const gemini = async (askRandom) => {
+    // console.log(askRandom, '====ini ask');
+    
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-const result = await model.generateContent(prompt);
-console.log(result.response.text());
+    const prompt = askRandom;
+
+    const result = await model.generateContent(prompt);
+    console.log(result.response.text());
+
+    return text
+}
+
+module.exports = gemini

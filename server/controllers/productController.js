@@ -1,3 +1,4 @@
+const gemini = require('../helpers/gemini');
 const { User, Product } = require('../models');
 const express = require('express');
 
@@ -132,6 +133,19 @@ class ProductController {
                 }
             })
             res.status(200).json({message: `succesfully deleting ${name}`})
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async geminiApi(req, res, next){
+        try {
+            const { prompt } = req.body;
+
+            let data = await gemini(prompt)
+            console.log(data, "===== ini udah ada data prompt di controller");
+            
+            res.status(200).json(data)
         } catch (error) {
             next(error)
         }

@@ -28,14 +28,14 @@ export default function CreateProduct({handleSubmit}) {
     //         });
     //     }
     // }
-    const handleClick = (e) => {
-        e.preventDefault();
-        Swal.fire({
-            title: "Success!",
-            text: "Added product successfully",
-            icon: "success",
-        });
-    }
+    // const handleClick = (e) => {
+    //     e.preventDefault();
+    //     Swal.fire({
+    //         title: "Success!",
+    //         text: "Added product successfully",
+    //         icon: "success",
+    //     });
+    // }
 
     return <>
         <form action="" onSubmit={handleClick} className="flex flex-col gap-2" >

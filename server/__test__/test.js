@@ -74,7 +74,7 @@ describe("Product Controller", () => {
       .get("/products/1")
       .set("Authorization", `Bearer ${access_token}`);
     expect(res.status).toBe(200);
-    expect(res.body).toHaveProperty(typeof());
+    expect(res.body).toHaveProperty("data");
     expect(res.body.data).toBeInstanceOf(Array);
     expect(res.body.data.length).toBe(1);
   });
