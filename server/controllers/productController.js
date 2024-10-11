@@ -1,4 +1,5 @@
 const { User, Product } = require('../models');
+const express = require('express');
 
 class ProductController {
     // static async getClaimProduct(req, res, next) {

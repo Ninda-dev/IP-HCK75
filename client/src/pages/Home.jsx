@@ -1,44 +1,52 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { instanceAxios } from "../axiosClient";
+import { useEffect } from "react";
+// import { instanceAxios } from "../axiosClient";
+import { useSelector, useDispatch } from 'react-redux'
 import Card from "../components/Card";
+import { fetchProducts, fetchDetailProduct } from "../features/productSlice";   
 
 export default function Home() {
-    const navigate = useNavigate();
-    const [product, setProduct] = useState([])
-    const fetchProduct = async () => {
-        try {
-            const { data } = await instanceAxios.get(`/products`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-                },
-            });
 
-            // console.log(data.data, "<<<<<<<<<data");
-            
-            setProduct(data.data);
-        } catch (error) {
-            console.log(error);
+    const {data, detail} = useSelector((state) => state.product);
+    console.log(data, "=======ini state");
+    
+    const dispatch = useDispatch()
+    // const [product, setProduct] = useState([])
+    // const fetchProduct = async () => {
+    //     try {
+    //         const { data } = await instanceAxios.get(`/products`, {
+    //             headers: {
+    //                 Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+    //             },
+    //         });
 
-        }
-    };
+    //         setProduct(data.data);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     useEffect(() => {
-        fetchProduct();
+        console.log('======masuk useEffect');
+        
+        dispatch(fetchProducts())
     }, []);
+
+    // console.log(data);
+    
 
     return (
         <>
-            {product.map((product) => {
+            {data.data?.map((product) => {
+                
                 return (
                     <Card
                         key={product.id}
                         product={{
-                            id:product.id,
-                            name:product.name,
-                            description:product.description,
-                            image:product.image,
-                            stock:product.stock
+                            id: product.id,
+                            name: product.name,
+                            description: product.description,
+                            image: product.image,
+                            stock: product.stock
                         }}
                     />
                 )
