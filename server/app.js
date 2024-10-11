@@ -15,3 +15,5 @@ app.use('/', require("./routers"))
 app.listen(port, () => {
     console.log(`Run in port ${port}`)
 })
+
+module.exports = app;
