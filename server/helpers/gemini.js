@@ -12,9 +12,9 @@ const gemini = async (askRandom) => {
     const prompt = askRandom;
 
     const result = await model.generateContent(prompt);
-    console.log(result.response.text());
+    console.log(result.response.text, "jjjh");
 
-    return text
+    return result.response.text()
 }
 
 module.exports = gemini

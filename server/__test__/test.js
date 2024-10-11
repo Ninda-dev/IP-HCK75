@@ -116,6 +116,24 @@ describe("Product Controller", () => {
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty("message", expect.stringContaining("succesfully deleting"));
   });
+
+  // New test for failure with invalid data
+  test("POST /products - failure with invalid data", async () => {
+    const invalidProduct = {
+      name: "", // Invalid name
+      description: "A new product description",
+      image: "http://example.com/image.jpg",
+      stock: -5, // Invalid stock
+    };
+    const res = await request(app)
+      .post("/products")
+      .set("Authorization", `Bearer ${access_token}`)
+      .send(invalidProduct);
+    
+    expect(res.status).toBe(400); // Assuming 400 is the status code for bad request
+    expect(res.body).toHaveProperty("error"); // Assuming the error response has an "error" field
+    expect(res.body.error).toContain("Validation failed"); // Adjust this message based on your implementation
+  });
 });
 
 describe("Claim Controller", () => {
